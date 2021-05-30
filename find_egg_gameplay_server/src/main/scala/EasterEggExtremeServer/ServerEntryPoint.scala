@@ -37,8 +37,8 @@ object ServerEntryPoint {
     val gameService = new GameServer()
 
 
-    val localHost = "127.0.0.1"
-    val localPort = 8005
+    val localHost = "103.153.65.194"
+    val localPort = 8085
 
     val herokuHost = "0.0.0.0"
     val herokuPort: Int = sys.env.getOrElse("PORT", "8005").toInt
