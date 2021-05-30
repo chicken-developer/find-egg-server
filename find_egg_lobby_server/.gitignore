@@ -1,57 +1,21 @@
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+install_manifest.txt
+*.cmake
 
-# Compiled Object files
-**/.DS_Store
-*.slo
-*.lo
-*.o
-*.obj
+Testing
+compile_commands.json
+.usages_clang
 
-# Precompiled Headers
-*.gch
-*.pch
+*.crt
+*.key
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-**/cmake-build-debug
-**/CMakeCache.txt
-**/cmake_install.cmake
-**/install_manifest.txt
-**/CMakeFiles/
-**/CTestTestfile.cmake
-**/Makefile
-**/*.cbp
-**/CMakeScripts
-**/compile_commands.json
-
-include/divisible/*
-
-
-## Local
-
-.idea/*.xml
-
-build/**/*
-
-include/*
-lib/*
-bin/*
-test/test_runner
-
+# executables
+ws_examples
+wss_examples
+crypto_test
+io_test
+parse_test
