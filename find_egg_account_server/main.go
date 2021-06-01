@@ -124,5 +124,5 @@ func main() {
 	router.HandleFunc("/people", createPerson).Methods("POST")
 	router.HandleFunc("/people/{id}", updatePerson).Methods("PUT")
 	router.HandleFunc("/people/{id}", deletePerson).Methods("DELETE")
-	log.Fatal(http.ListenAndServe("103.153.65.194:8084", router))
+	log.Fatal(http.ListenAndServe("192.168.220.129:8084", router))
 }
