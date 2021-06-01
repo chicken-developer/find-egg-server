@@ -112,6 +112,7 @@ func homeLink(response http.ResponseWriter, request *http.Request) {
 }
 
 func main() {
+	fmt.Println("Server listening on port: 8084")
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")

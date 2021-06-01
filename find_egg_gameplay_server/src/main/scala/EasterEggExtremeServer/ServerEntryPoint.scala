@@ -38,15 +38,15 @@ object ServerEntryPoint {
 
     val ubuntuHost = "192.168.220.129"
     val localHost = "103.153.65.194"
-    val localPort = 8085
+    val localPort = 8089
 
     val herokuHost = "0.0.0.0"
     val herokuPort: Int = sys.env.getOrElse("PORT", "8005").toInt
 
-    val gameServerBind = Http().newServerAt(ubuntuHost, localPort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute) // https://
+    val gameServerBind = Http().newServerAt("127.0.0.1", localPort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute) // https://
+    val gameServerWithoutSecurity = Http().newServerAt(ubuntuHost, localPort).bindFlow(gameService.GameFinalRoute)
 
-
-    val listBindingFutureWithSecurity = List(gameServerBind)
+    /*val listBindingFutureWithSecurity = List(gameServerBind)
     println(s"Server is progressing...\nPress RETURN to stop...")
     StdIn.readLine()
 
@@ -56,5 +56,11 @@ object ServerEntryPoint {
             .onComplete(_ => system.terminate())
       }
 
+  } */
+    println(s"Server is listening...\n PRESS CTRL+C OR RETURN to stop...")
+    StdIn.readLine()
+    gameServerWithoutSecurity
+      .flatMap(_.unbind())
+      .onComplete(_ => system.terminate())
   }
 }
