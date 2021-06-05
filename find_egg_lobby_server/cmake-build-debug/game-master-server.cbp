@@ -205,6 +205,10 @@
 			<Option target="wss_server_entry_point"/>
 			<Option target="ws_server_entry_point"/>
 		</Unit>
+		<Unit filename="/home/dev/Desktop/Projects/unity-game-find-egg-server/find_egg_lobby_server/server_handler.cpp">
+			<Option target="wss_server_entry_point"/>
+			<Option target="ws_server_entry_point"/>
+		</Unit>
 		<Unit filename="/home/dev/Desktop/Projects/unity-game-find-egg-server/find_egg_lobby_server/server_handler.hpp">
 			<Option target="wss_server_entry_point"/>
 			<Option target="ws_server_entry_point"/>

@@ -10,7 +10,7 @@ else()
     option(BUILD_TESTING "set ON to build library tests" OFF)
 endif()
 
-add_library(game-master-server INTERFACE entry_point_wss.cpp server_handler.hpp)
+add_library(game-master-server INTERFACE entry_point_wss.cpp server_handler.hpp server_handler.cpp)
 
 target_include_directories(game-master-server INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -60,9 +60,9 @@ if(CMAKE_SOURCE_DIR STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
         add_compile_options(/W1)
     endif()
 
-    add_executable(ws_server_entry_point entry_point_wss.cpp server_handler.hpp entry_point_ws.cpp)
+    add_executable(ws_server_entry_point entry_point_wss.cpp server_handler.hpp entry_point_ws.cpp server_handler.cpp)
     target_link_libraries(ws_server_entry_point game-master-server)
-    add_executable(wss_server_entry_point entry_point_wss.cpp server_handler.hpp)
+    add_executable(wss_server_entry_point entry_point_wss.cpp server_handler.hpp server_handler.cpp)
     target_link_libraries(wss_server_entry_point game-master-server)
     
     install(FILES asio_compatibility.hpp server_ws.hpp client_ws.hpp server_wss.hpp client_wss.hpp crypto.hpp utility.hpp status_code.hpp mutex.hpp DESTINATION include/game-master-server)

@@ -7,7 +7,7 @@ object PlayerDataJsonProtocol extends DefaultJsonProtocol {
     import EasterEggExtremeServer.Core.Game._
     implicit val positionFormat = jsonFormat2(Position)
     implicit val playerDataFormat = jsonFormat3(PlayerData)
-    implicit val PlayerFormat = jsonFormat2(Player)
+    implicit val PlayerFormat = jsonFormat3(Player)
 
 }
 
@@ -15,10 +15,10 @@ object PlayerDataJsonProtocol extends DefaultJsonProtocol {
 object Game {
     trait GameData
         case class PlayerWithActor(player: Player, actor: ActorRef) extends GameData
-        case class Player(playerName: String, playerData: PlayerData) extends GameData
+        case class Player(playerIndex: Int, playerName: String, playerData: PlayerData) extends GameData
         case class PlayerData(currentPoint: Int, position: Position, eggPosition: Position)
 
-        case class Position(x:Int, y:Int) extends GameData {
+        case class Position(x:Double, y:Double) extends GameData {
             def + (other: Position) : Position = {
                 Position(x+other.x, y+other.y)
             }
@@ -45,8 +45,12 @@ object Behavior {
     case object Generation {
         import Game.Position
         def GenerationRandomPosition(mapPosition: String): Position ={
-            Position(0, 0)
+            val position = mapPosition.split("_").map(_.trim).toList
+            val x_Pos: Int = position.head.toInt
+            val y_Pos: Int = position(1).toInt
+            Position(x_Pos, y_Pos)
         }
+
         def GenerationStartGamePosition(mapPosition: String): Position = {
             val startGamePosition = GenerationRandomPosition(mapPosition)
             startGamePosition
@@ -58,9 +62,9 @@ object Behavior {
         }
 
         def GenerationPlayerData(playerName: String, mapPosition: String): Player = {
-            val newPlayerData = PlayerData(0, GenerationStartGamePosition(mapPosition),GenerationEggPosition(mapPosition))
-            val newPlayer = Player(playerName, playerData = newPlayerData)
-            newPlayer
+            var defaultPlayerData = PlayerData(0, GenerationStartGamePosition(mapPosition),GenerationEggPosition(mapPosition))
+            var player = Player(0, playerName, defaultPlayerData)
+            player
         }
     }
 

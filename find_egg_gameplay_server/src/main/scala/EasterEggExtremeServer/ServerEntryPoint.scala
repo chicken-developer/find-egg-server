@@ -37,13 +37,13 @@ object ServerEntryPoint {
     val gameService = new GameServer()
 
     val ubuntuHost = "192.168.220.129"
-    val localHost = "103.153.65.194"
+    val vpsHost= "103.153.65.194"
     val localPort = 8089
 
     val herokuHost = "0.0.0.0"
     val herokuPort: Int = sys.env.getOrElse("PORT", "8005").toInt
 
-    val gameServerBind = Http().newServerAt("127.0.0.1", localPort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute) // https://
+    //val gameServerBind = Http().newServerAt("127.0.0.1", localPort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute) // https://
     val gameServerWithoutSecurity = Http().newServerAt(ubuntuHost, localPort).bindFlow(gameService.GameFinalRoute)
 
     /*val listBindingFutureWithSecurity = List(gameServerBind)

@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f732ebcd-0ccc-4670-b1c6-4b6be9c2d768" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/Actors/GameAreaActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/Actors/GameAreaActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/Core/GameHandle.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/Core/GameHandle.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/ServerEntryPoint.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_gameplay_server/src/main/scala/EasterEggExtremeServer/ServerEntryPoint.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_lobby_server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_lobby_server/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_lobby_server/cmake-build-debug/ws_server_entry_point" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_lobby_server/cmake-build-debug/ws_server_entry_point" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../find_egg_lobby_server/entry_point_ws.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../find_egg_lobby_server/entry_point_ws.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
