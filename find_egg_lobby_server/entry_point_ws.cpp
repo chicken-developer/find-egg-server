@@ -53,22 +53,18 @@ int main() {
              << "Error: " << ec << ", error message: " << ec.message() << endl;
     };
 
-    // Example 2: Echo thrice
-    // Demonstrating queuing of messages by sending a received message three times back to the client.
-    // Concurrent send operations are automatically queued by the library.
-    // Test with the following JavaScript:
-    //   var ws=new WebSocket("ws://localhost:8080/echo_thrice");
-    //   ws.onmessage=function(evt){console.log(evt.data);};
-    //   ws.send("test");
+
     auto &privateLobby = server.endpoint["^/privateLobby/?$"];
     privateLobby.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::InMessage> in_message) {
-        auto out_message = make_shared<string>(in_message->string());
+        auto out_message = make_shared<WsServer::OutMessage>();
+        auto* handler = new GameMasterServer::Handle();
+        *out_message << handler->handle_out_message(in_message);
 
-        connection->send(*out_message, [connection, out_message](const GameMasterServer::error_code &ec) {
+        connection->send(out_message, [connection, out_message](const GameMasterServer::error_code &ec) {
             if(!ec)
-                connection->send(*out_message); // Sent after the first send operation is finished
+                connection->send(out_message); // Sent after the first send operation is finished
         });
-        connection->send(*out_message); // Most likely queued. Sent after the first send operation is finished.
+        connection->send(out_message); // Most likely queued. Sent after the first send operation is finished.
     };
 
 
