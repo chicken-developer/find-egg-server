@@ -1,1 +1,0 @@
-print("Config completed")

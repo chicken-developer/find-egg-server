@@ -1,1 +1,0 @@
-print("Run Lobby server")

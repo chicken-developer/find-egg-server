@@ -1,1 +1,0 @@
-print("Running account server")
