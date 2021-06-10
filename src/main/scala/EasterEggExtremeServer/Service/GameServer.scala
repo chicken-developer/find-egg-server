@@ -25,15 +25,15 @@ class GameServer(implicit val system: ActorSystem, implicit val materializer: Ma
             val MessageToGameInMatchEventConverter = builder.add(Flow[Message].map {
 
                 case TextMessage.Strict(s"SPECIAL_REQUEST:$request") =>
-                    println("Have special request from " + player.toString)
+                    println("Have special request from " + player.playerName)
                     SpecialRequestUpdate(player, request)
 
                 case TextMessage.Strict(s"MOVE_REQUEST:$direction") =>
-                    println("Have move request from " + player.toString)
+                    println("Have move request from " + player.playerName)
                     PositionUpdate(player, direction)
 
                 case TextMessage.Strict(newRequest) =>
-                    println("Have update data request from " + player.toString)
+                    println("Have update data request from " + player.playerName)
                     GameDataUpdate(player, newRequest)
 
             })

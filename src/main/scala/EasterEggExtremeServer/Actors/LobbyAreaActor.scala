@@ -12,10 +12,11 @@ class LobbyAreaActor extends Actor with ActorLogging {
     case JoinLobby(player, actor) =>
       val newPlayerInLobby = PlayerInLobby(playersInLobby.size + 1, player.playerName, player.position, player.serverWillJoin);
       playersInLobby += (newPlayerInLobby.playerName -> PlayerInLobbyWithActor(newPlayerInLobby, actor))
-      println(s"Player $newPlayerInLobby enter game succeed")
+      println(s"Player $newPlayerInLobby enter lobby succeed")
       NotifyLobbyDataUpdate()
 
     case LeftLobby(player) =>
+      println(s"Player $player left lobby")
       playersInLobby -= player.playerName
       NotifyLobbyDataUpdate()
 

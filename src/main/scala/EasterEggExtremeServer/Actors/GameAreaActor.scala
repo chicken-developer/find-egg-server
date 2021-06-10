@@ -22,29 +22,33 @@ class GameAreaActor extends Actor with ActorLogging {
            NotifyGameDataUpdate()
 
        case LeftMatch(player) =>
-           playersInGame -= player.playerName
+         println(s"Player $player left game succeed")
+         playersInGame -= player.playerName
            NotifyGameDataUpdate()
 
        case PositionUpdate(player, direction) =>
          val offset = direction match {
-           case "up" => Position(0,0.1)
-           case "down" => Position(0,-0.1)
-           case "right" => Position(0.1,0)
-           case "left" => Position(-0.1,0)
+           case "up" => Position(0,0.5)
+           case "down" => Position(0,-0.5)
+           case "right" => Position(0.5,0)
+           case "left" => Position(-0.5,0)
          }
          val oldPlayerWithActor = playersInGame(player.playerName)
          val oldPlayer = oldPlayerWithActor.player
+         log.info(s"Enter Position update with old pos is ${oldPlayer.playerData.position}")
+
          val newPosition = oldPlayer.playerData.position + offset
-         if (!takenPositions.contains(newPosition)) {
-           val actor = oldPlayerWithActor.actor
-           playersInGame(player.playerName) =
+         val actor = oldPlayerWithActor.actor
+         playersInGame(player.playerName) =
              PlayerWithActor(
                Player(player.playerIndex,
-                 player.playerName,
+                      player.playerName,
                       PlayerData(player.playerData.currentPoint, newPosition, player.playerData.eggPosition)),
-                      actor)
-           NotifyPositionUpdate()
-         }
+               actor)
+         log.info(s"Exit Position update with new pos for player ${playersInGame(player.playerName).player.playerName}")
+         log.info(s"Exit Position update with new pos is ${playersInGame(player.playerName).player.playerData.position}")
+
+         NotifyGameDataUpdate()
 
 
        case GameDataUpdate(player, newRequest) =>
