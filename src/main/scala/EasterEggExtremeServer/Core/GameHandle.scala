@@ -60,7 +60,7 @@ object Behavior {
             Position(x_Pos, y_Pos)
         }
         def GenerationPlayerInLobbyData(playerName: String): PlayerInLobby = {
-            ???
+            PlayerInLobby(0, playerName, Position(0,0),"ws://192.168.1.9/8088/?playerName=demo&mapPosition=20_00")
         }
         def GenerationStartGamePosition(mapPosition: String): Position = {
             val startGamePosition = GenerationRandomPosition(mapPosition)

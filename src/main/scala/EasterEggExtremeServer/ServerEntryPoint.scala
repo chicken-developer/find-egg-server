@@ -38,16 +38,16 @@ object ServerEntryPoint {
     val lobbyService = new LobbyServer()
 
 
-    val ubuntuHost = "192.168.220.129"
+    val localHost = "192.168.1.9"
     val vpsHost= "103.153.65.194"
 
     val accountServerPort = 8086
     val lobbyPort = 8087
     val gameServerPort = 8088
 
-    val accountServerBind = Http().newServerAt(ubuntuHost, accountServerPort).bindFlow(accountService.finalRoute)
-    val lobbyServerBind = Http().newServerAt(ubuntuHost, lobbyPort).bindFlow(lobbyService.LobbyFinalRoute)
-    val gameServerBind = Http().newServerAt(ubuntuHost, gameServerPort).bindFlow(gameService.GameFinalRoute)
+    val accountServerBind = Http().newServerAt(localHost, accountServerPort).bindFlow(accountService.finalRoute)
+    val lobbyServerBind = Http().newServerAt(localHost, lobbyPort).bindFlow(lobbyService.LobbyFinalRoute)
+    val gameServerBind = Http().newServerAt(localHost, gameServerPort).bindFlow(gameService.GameFinalRoute)
 
 
     val listBindingFutureWithSecurity = List(accountServerBind, lobbyServerBind, gameServerBind)

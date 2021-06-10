@@ -17,7 +17,7 @@ trait AccountJsonProtocol extends DefaultJsonProtocol {
   implicit val accountJson = jsonFormat2(Account)
 }
 
-class AccountServer extends App with AccountJsonProtocol {
+class AccountServer extends AccountJsonProtocol {
 
   implicit val system = ActorSystem("AccountServer")
   implicit val materializer = ActorMaterializer()
