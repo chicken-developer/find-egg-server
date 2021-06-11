@@ -28,10 +28,10 @@ class GameAreaActor extends Actor with ActorLogging {
 
        case PositionUpdate(player, direction) =>
          val offset = direction match {
-           case "up" => Position(0,0.5)
-           case "down" => Position(0,-0.5)
-           case "right" => Position(0.5,0)
-           case "left" => Position(-0.5,0)
+           case "up" => Position(0,0.1)
+           case "down" => Position(0,-0.1)
+           case "right" => Position(0.1,0)
+           case "left" => Position(-0.1,0)
          }
          val oldPlayerWithActor = playersInGame(player.playerName)
          val oldPlayer = oldPlayerWithActor.player
