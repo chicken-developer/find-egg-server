@@ -63,8 +63,6 @@ class GameAreaActor extends Actor with ActorLogging {
             val newPlayerData: PlayerData = newRequest match {
               case "GET_EGG" =>
                 Handler.HandleAPlayerGetEgg(oldPlayerData)
-              case "START_GAME" =>
-                Handler.HandleGameWaiting(oldPlayerData)
               case "END_GAME" =>
                 Handler.HandleEndGame(oldPlayerData)
             }

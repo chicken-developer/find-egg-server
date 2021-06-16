@@ -38,7 +38,7 @@ object ServerEntryPoint {
     val lobbyService = new LobbyServer()
 
 
-    val localHost = "192.168.1.9"
+    val localHost = "127.0.0.1"
     val vpsHost= "103.153.65.194"
 
     val accountServerPort = 8086
