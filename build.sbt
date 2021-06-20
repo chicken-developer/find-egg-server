@@ -33,8 +33,9 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
   "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
   "org.scalatest" %% "scalatest" % "3.1.4" % Test,
-  "com.typesafe.akka" %% "akka-http-testkit" % "10.2.2" % Test
+  "com.typesafe.akka" %% "akka-http-testkit" % "10.2.2" % Test,
 
- 
+  "com.google.protobuf" % "protobuf-java" % "3.17.3",
+
 )
 

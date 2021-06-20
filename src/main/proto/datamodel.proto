@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package EasterEggExtremeServer;
+
+option java_package="EasterEggExtremeServer";
+
+message OnlineStoreUser {
+  required int32 userID = 1;
+  required string userName = 2;
+  optional string email = 3;
+}
